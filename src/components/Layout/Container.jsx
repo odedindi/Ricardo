@@ -17,7 +17,6 @@ export const ContainerWrapper = styled.div`
 
     @media only screen and (max-width: 414px) {
         max-width: 395px;
-        border: solid 1px red;
     };
 `;
 

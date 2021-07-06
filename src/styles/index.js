@@ -4,6 +4,7 @@ export const theme = {
     colors: {
         brand: '#df772f',
         elementBorder: '#b9c2e7',
+        blue: '#8699f0',
         background: '#fafafa',
         header: '#0a1f44',
         paragraph: '#343D48',
@@ -22,6 +23,5 @@ export const GlobalStyle = createGlobalStyle `
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: ${ theme.colors.background };
-    } 
-
+    }
 `

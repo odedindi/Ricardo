@@ -1,36 +1,39 @@
 // ====================== react ===========================
 import { lazy, useState } from 'react';
-
 // ====================== styles ==========================
-import { SmallLogo } from '../styles/ui/logo'
+import { HomePageWrapper } from '../styles/ui/wrappers';
+import SearchSharpIcon from '@material-ui/icons/SearchSharp'
 // ==================== components ========================
+const Button = lazy(() => import('../components/Button'))
+const SearchInput = lazy(() => import('../components/SearchInput'))
+// ========================================================
 
-const Container = lazy(() => import('../components/Layout/Container'))
-const Search = lazy(() => import('../components/Search'))
 const HomePage = () => {
     const [ searchParam, setSearchParam ] = useState('');
 
     const inputChangeHandler = ({ target }) => {
         setSearchParam(target.value)
-        console.log(searchParam)
     }
 
-    const onSearchHandler = () => {
+    const searchClickHandler = () => {
         console.log(searchParam)
     }
     
     return (
-        <Container padding={true} >
-            <SmallLogo>Ricardo</SmallLogo>
-
-
-            <Search
+        <HomePageWrapper>
+            <SearchInput
                 state={ searchParam }
-                inputChangeHandler={ inputChangeHandler }
-                onSearchHandler={ onSearchHandler }
+                onChangeHandler={ inputChangeHandler }
             />
-        
-        </Container>
+            <Button 
+                state={ searchParam }
+                onClickHandler={ searchClickHandler }
+            >
+                <SearchSharpIcon fontSize='small'/>
+                Search
+            </Button>
+
+        </HomePageWrapper>
     )
 }
 
