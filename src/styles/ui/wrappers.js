@@ -16,12 +16,13 @@ export const HomePageWrapper = styled.div `
     @media only screen and (max-width: 480px) {
         width: 70%;
     };
-`
+`;
 
 export const ResultsWrapper = styled.div `
     width: 80%;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
     grid-template-rows: repeat(auto-fit, 340px);
     grid-gap: 1rem;
     grid-auto-flow: dense;
@@ -35,5 +36,16 @@ export const ResultsWrapper = styled.div `
         /* border: solid 1px green; */
         grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
     };
-    
-`
+`;
+
+export const ArticleWrapper = styled(HomePageWrapper) `
+    border: solid 1px red;
+    padding-top: 0;
+    align-items: flex-start;
+
+    img {
+        width: 45vw;
+        min-width: 18rem;
+        max-width: 45rem;
+    };
+`;

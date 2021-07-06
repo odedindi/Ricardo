@@ -1,16 +1,16 @@
 // ====================== react ===========================
-import { lazy, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from "react-router-dom";
 // ====================== styles ==========================
 import { HomePageWrapper } from '../styles/ui/wrappers';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp'
 // ====================== fetches =========================
-import { fetchSearchResults } from '../Helpers/fetches';
 import { useStore } from '../store';
+import { fetchSearchResults } from '../Helpers/fetches';
 import { searchResultsAction } from '../store/actions'
 // ==================== components ========================
-const Button = lazy(() => import('../components/Button'))
-const SearchInput = lazy(() => import('../components/SearchInput'))
+import Button from '../components/Button';
+import SearchInput from '../components/SearchInput';
 // ========================================================
 
 const HomePage = () => {
@@ -46,7 +46,7 @@ const HomePage = () => {
             </Button>
 
         </HomePageWrapper>
-    )
-}
+    );
+};
 
 export default HomePage;

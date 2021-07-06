@@ -1,32 +1,12 @@
 
 // ======================== style ========================
-import { makeStyles } from '@material-ui/core/styles';
-
+import * as S from './style'; 
 // ====================== components =====================
-import { Card, CardActionArea, CardActions, CardContent, 
-    CardMedia, Typography } from '@material-ui/core'
-
-const useStyles = makeStyles({
-    root: {
-        width: 245,
-    },
-    content: {
-        height: 130,
-        padding: '0.75rem 1.65rem',
-    },
-    media: {
-        height: 10,
-        paddingTop: '56.25%', // 16:9
-    },
-    price: {
-        fontFamily: 'sans-serif',
-        fontSize: 16
-    },
-});
+import { CardActionArea, CardActions, Typography } from '@material-ui/core';
 
 
-const ArticleCard = ({ buyNowPrice, endDate, id, imageUrl, onClick, title }) => {
-    const classes = useStyles();
+
+const ArticleCard = ({ buyNowPrice, endDate, imageUrl, onClick, title }) => {
 
     const datePrettier = (string) => {
         const splitedString = string.split('T')
@@ -34,38 +14,31 @@ const ArticleCard = ({ buyNowPrice, endDate, id, imageUrl, onClick, title }) => 
     }
 
     return (
-        <Card className={ classes.root }>
+        <S.Card>
+
             <CardActionArea onClick={ onClick }>
-                <CardMedia
-                    className={ classes.media }
+                <S.Image 
                     image={ imageUrl }
-                    title="Product's Image"
+                    title={ title }
                 />
-                <CardContent className={ classes.content }>
-                    <Typography 
-                        gutterBottom 
-                        variant="h6" 
-                        component="h2"
-                        paragraph={ true }
+                <S.Content>
+                    <S.Title variant="h6" component="h2"
+                        gutterBottom paragraph={ true }
                     >
                     { title }
-                    </Typography>
-
+                    </S.Title>
+    
                     <Typography variant="body2" component="p">
                     Ending on: <strong>{ datePrettier(endDate) }</strong>
                     </Typography>
-                </CardContent>
+                </S.Content>
             </CardActionArea>
             <CardActions>
-            <Typography 
-                className={ classes.price }
-                variant="body2" 
-                component="p"
-            >
+            <S.Price variant="body2" component="p">
                 { buyNowPrice } CHF
-            </Typography>
+            </S.Price>
             </CardActions>
-        </Card>
+        </S.Card>
     );
 };
 

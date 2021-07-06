@@ -1,52 +1,67 @@
 // ======================== react =========================
-import { lazy } from 'react';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 // ======================== styles ========================
 import { ResultsWrapper } from '../styles/ui/wrappers'
 // ======================= fetches ========================
 import { useStore } from '../store';
+import { fetchArticleDetails } from '../Helpers/fetches';
 import { chosenArticleAction } from '../store/actions'
 // ====================== components ======================
-const ArticleCard = lazy(() => import('../components/ArticleCard'))
-const Container = lazy(() => import('../components/Layout/Container'))
-
+import ArticleCard from '../components/ArticleCard';
+import Container from '../components/Layout/Container';
 // ========================================================
 
 const SearchPage = () => {
     const history = useHistory();
-    const [ state, dispatch ] = useStore();
+    const [ { searchResults }, dispatch ] = useStore();
+    const articles = searchResults.articles;
 
-    if (!state.searchResults.articles) {
-        return (
-            <Container>
-                <p>No known results.</p>
-                <p>Directin you back to the home page in 3 seconds</p>
-                {
-                    setTimeout(() => {
-                    history.push('/')
-                    }, 3000)
-                }
-            </Container>
-        )
-    }
+    const goToHomePageInThreeSeconds = () => {
+        setTimeout(() => {
+            history.push('/')
+        }, 3000);
+    };
+
+    const onClickHandler = (id) => {
+        fetchArticleDetails(id)
+        .then(data => {
+            console.log(data)
+            dispatch(chosenArticleAction(data));
+            history.push(`/article/:${ id }`);
+        });
+    };
 
     return (
-        <Container padding={ true }>
 
-            <p>Total count: { state.searchResults.articles.length }</p>
-            <ResultsWrapper>
-                {
-                    state.searchResults.articles.map(article => 
-                        <ArticleCard 
-                            key={article.id} 
-                            onClick={ () => dispatch(chosenArticleAction(article))}
-                            { ...article } 
-                        />               
-                    )
+            <Container padding={ true }>
+                { !articles ?   
+                    <>  
+                        <p>No known results.</p>
+                        <p>You should be redirected back to the home page within few seconds</p>
+                        <p>otherwise please press <Link to='/'>here</Link></p>
+                        { goToHomePageInThreeSeconds() }
+                    </>
+                    :
+                    <>
+                        <p>Total count: { articles.length }</p>
+                        <ResultsWrapper>
+                          
+                            {
+                                articles.map(article => 
+                                    <ArticleCard 
+                                        key={ article.id } 
+                                        onClick={ () => onClickHandler(article.id) }
+                                        { ...article } 
+                                    />               
+                                )
+                            }
+                          
+                        </ResultsWrapper>
+                    </>
                 }
-            </ResultsWrapper>
-        </Container>
-    )
-}
+            </Container>
+
+    );
+};
 
 export default SearchPage;
