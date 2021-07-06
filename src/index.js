@@ -4,19 +4,25 @@ import ReactDOM from 'react-dom';
 // ======================== styles ========================
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from './styles'
+// ======================== store =========================
+import { StoreProvider } from './store';
 // ====================== components ======================
 import Routes from './routes';
 import reportWebVitals from './reportWebVitals';
-
+// ========================================================
 
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <StoreProvider>
     <ThemeProvider theme={ theme }>
       <GlobalStyle />
-      <Routes />
+      
+        <Routes />
+
     </ThemeProvider>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

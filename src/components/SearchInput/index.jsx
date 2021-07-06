@@ -8,17 +8,18 @@ const InputWrapper = styled.div `
 `
 // ========================================================
 
-const SearchInput = ({ onChangeHandler, state }) => (
+const SearchInput = ({ onChangeHandler, onClickHandler, state }) => (
     <InputWrapper>
         <TextField
             id="searchInput"
             label="Search text"
             variant="outlined"
-            value={ state }
-            onChange={ (event) => onChangeHandler(event) }
             autoFocus={ true }
             fullWidth={ true }
             size='small'
+            value={ state }
+            onChange={ (event) => onChangeHandler(event) }
+            onKeyUp={ ({ key }) => key === 'Enter' && state.length ? onClickHandler() : ''}
         />
     </InputWrapper>
 );

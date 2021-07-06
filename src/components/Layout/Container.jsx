@@ -5,7 +5,7 @@ export const ContainerWrapper = styled.div`
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding: ${({ padding }) => (padding ? "1rem 4.8rem" : "1rem 2.5rem")};
+    padding: ${({ padding }) => (padding ? "1rem 5.75rem" : "1rem 2.5rem")};
     overflow: hidden;
     @media only screen and (max-width: 1024px) {
         max-width: 950px;
