@@ -1,5 +1,5 @@
 // ==================== constants =========================
-import * as C from '../Helpers/constants'
+import * as C from '../helpers/constants'
 
 
 export const searchResults = (articles) => ({

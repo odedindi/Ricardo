@@ -7,7 +7,7 @@ import { HomePageWrapper } from '../styles/wrappers';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp'
 // ====================== fetches =========================
 import { useStore } from '../store';
-import { fetchSearchResults } from '../Helpers/fetches';
+import { fetchSearchResults } from '../helpers/fetches';
 import * as ACTION from '../store/actions'
 // ==================== components ========================
 import Button from '../components/Button';

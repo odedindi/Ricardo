@@ -7,7 +7,7 @@ const Container = lazy(() => import('../components/Layout/Container'));
 const Logo = lazy(() => import('../components/Logo'));
 // ======================= pages ==========================
 const HomePage = lazy(() => import('../pages/home'));
-const SearchPage = lazy(() => import('../pages/search'));
+const SearchPage = lazy(() => import('../pages/searchResults'));
 const ProductDetailsPage = lazy(() => import('../pages/productDetails'));
 // ========================================================
 

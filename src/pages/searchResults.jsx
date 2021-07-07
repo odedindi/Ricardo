@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { ResultsWrapper } from '../styles/wrappers'
 // ======================= fetches ========================
 import { useStore } from '../store';
-import { fetchArticleDetails } from '../Helpers/fetches';
+import { fetchArticleDetails } from '../helpers/fetches';
 import * as ACTION from '../store/actions'
 // ====================== components ======================
 import ArticleCard from '../components/ArticleCard';
