@@ -13,9 +13,7 @@ const ProductDetailsPage = lazy(() => import('../pages/productDetails'));
 
 const Routes = () => (
     <Router>
-        <Suspense 
-            fallback={ <Spinner/> }
-        >
+        <Suspense fallback={ <Spinner/> }>
             <Container>
                 <Logo/>
                 <Switch>
@@ -33,14 +31,12 @@ const Routes = () => (
                         component={ ProductDetailsPage }
                     />
                     <Route 
-                        render={ () => 
-                            <Redirect to={{ pathname: '/' }}/> 
-                        }
+                        render={ () => <Redirect to={{ pathname: '/' }}/> }
                     />
                 </Switch>
             </Container>
         </Suspense>
     </Router>
-)
+);
 
 export default Routes;

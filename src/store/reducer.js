@@ -1,5 +1,6 @@
 // ==================== constants =========================
 import * as C from '../Helpers/constants'
+// ========================================================
 
 export const initialState = {
     searchResults: [],
@@ -7,7 +8,9 @@ export const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-    console.log('from the reducer: ', action)
+    if (process.env.NODE_ENV === 'development') {
+        console.log('from the reducer: ', action)
+    };
     switch (action.type) {
         case C.SEARCH_RESULTS:
             return {

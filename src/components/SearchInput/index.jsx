@@ -1,15 +1,10 @@
 // ====================== styles ==========================
+import * as S from './style';
 import TextField from '@material-ui/core/TextField';
-import styled from 'styled-components';
-
-const InputWrapper = styled.div `
-    width: 85%;
-    margin-right: .5rem;
-`
 // ========================================================
 
 const SearchInput = ({ onChangeHandler, onClickHandler, state }) => (
-    <InputWrapper>
+    <S.InputWrapper>
         <TextField
             id="searchInput"
             label="Search text"
@@ -21,7 +16,7 @@ const SearchInput = ({ onChangeHandler, onClickHandler, state }) => (
             onChange={ (event) => onChangeHandler(event) }
             onKeyUp={ ({ key }) => key === 'Enter' && state.length ? onClickHandler() : ''}
         />
-    </InputWrapper>
+    </S.InputWrapper>
 );
 
 export default SearchInput;

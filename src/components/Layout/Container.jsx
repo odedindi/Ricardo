@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const ContainerWrapper = styled.div`
+const ContainerWrapper = styled.div`
     position: relative;
-    width: 100%;
+    width: auto;
     margin-right: auto;
     margin-left: auto;
     padding: ${({ padding }) => (padding ? "3rem 5.75rem" : "1rem 2.5rem")};
@@ -28,5 +28,5 @@ const Container = ({ children, padding }) => (
     </ContainerWrapper>
   );
   
-  export default Container;
+export default Container;
   

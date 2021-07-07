@@ -14,14 +14,23 @@ export const Image = styled(CardMedia) `
 `;
 
 export const Content = styled(CardContent) `
-    height: 115px;
-    padding: 1.275rem 1.65rem;
+    height: 140px;
+    padding: 0 1.65rem;
+`
+
+export const TitleWrapper = styled.div `
+    height: 95px;
 `
 
 export const Title = styled(Typography) `
-    font-size: 20;
+    font-size: 19px;
 `
+
+export const EndingWrapper = styled.div `
+    height: 55px;
+`
+
 export const Price = styled(Typography) `
-    font-size: 16;
+    font-size: 16px;
     font-family: sans-serif;
 `

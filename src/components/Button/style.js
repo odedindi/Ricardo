@@ -25,5 +25,5 @@ export const Button = styled.button `
     &:active {
         transform: scale(0.96);
         transition: 0.125s;
-    }
-`
+    };
+`;

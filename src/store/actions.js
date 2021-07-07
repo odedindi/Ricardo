@@ -2,12 +2,12 @@
 import * as C from '../Helpers/constants'
 
 
-export const searchResultsAction = (articles) => ({
+export const searchResults = (articles) => ({
     type: C.SEARCH_RESULTS,
     payload: articles
 });
 
-export const chosenArticleAction = (article) => ({
+export const chosenArticle = (article) => ({
     type: C.ARTICLE_CHOSEN,
     payload: article
 })

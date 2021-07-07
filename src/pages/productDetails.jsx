@@ -1,20 +1,18 @@
 // ========================= react =========================
-import { Redirect } from "react-router-dom";
 // ========================= style =========================
-import { ArticleWrapper } from '../styles/ui/wrappers'
+import { ArticleWrapper } from '../styles/wrappers'
 // ======================== fetches ========================
 import { useStore } from '../store';
 // ====================== components =======================
-import ArticleBlock from '../components/ArticleBlock';
 import Container from '../components/Layout/Container'
+import ArticleCard from "../components/ArticleCard";
+import NoKnownDataGoToHome from '../components/NoKnownDataGoToHome';
+// =========================================================
 
 const ProductDetailsPage = () => {
     const [ { chosenArticle } ] = useStore();
-
-
-    console.log(chosenArticle)
     if (!Object.entries(chosenArticle).length) { 
-        return <Redirect to='/' />
+        return <NoKnownDataGoToHome/>
     };
 
     return (
@@ -24,10 +22,10 @@ const ProductDetailsPage = () => {
                     src={ chosenArticle.article.imageUrl }
                     alt={ chosenArticle.article.title }
                 />
-                <ArticleBlock { ...chosenArticle } />
+                <ArticleCard type='large' { ...chosenArticle } />
             </ArticleWrapper>
         </Container >
-    )
-}
+    );
+};
 
 export default ProductDetailsPage;

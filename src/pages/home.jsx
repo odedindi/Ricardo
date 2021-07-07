@@ -1,13 +1,14 @@
 // ====================== react ===========================
+
 import { useState } from 'react';
 import { useHistory } from "react-router-dom";
 // ====================== styles ==========================
-import { HomePageWrapper } from '../styles/ui/wrappers';
+import { HomePageWrapper } from '../styles/wrappers';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp'
 // ====================== fetches =========================
 import { useStore } from '../store';
 import { fetchSearchResults } from '../Helpers/fetches';
-import { searchResultsAction } from '../store/actions'
+import * as ACTION from '../store/actions'
 // ==================== components ========================
 import Button from '../components/Button';
 import SearchInput from '../components/SearchInput';
@@ -25,11 +26,11 @@ const HomePage = () => {
     const onClickHandler = () => {
         fetchSearchResults(searchText)
         .then(data => {
-            dispatch(searchResultsAction(data));
+            dispatch(ACTION.searchResults(data));
             history.push(`/search/:${ searchText }`);
         })
     };
-    
+        
     return (
         <HomePageWrapper>
             <SearchInput

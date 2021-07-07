@@ -8,6 +8,6 @@ export const SpinnerWrapper = styled.div `
     margin-top: -50px;
     margin-left: -50px;
     h2 {
-        color: ${ ({ theme }) => theme.brand };
+        color: ${ ({ theme }) => theme.colors.brand };
     }
 `;

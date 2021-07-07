@@ -1,12 +1,13 @@
 // ====================== styles ==========================
-import { SpinnerWrapper } from './style';
+import * as S from './style';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // ========================================================
 
 const Spinner = () => (
-    <SpinnerWrapper>
+    <S.SpinnerWrapper>
         <CircularProgress/>
-    </SpinnerWrapper>
+        <h2>Loading...</h2>
+    </S.SpinnerWrapper>
 );
 
 export default Spinner;
