@@ -8,8 +8,12 @@ The application is described below
 - `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `**SEARCH**` button.
 - Clicking the `SEARCH` button goes to the **Search page**
 
-example
-    <img src="./src/assets/required_home_page.png" height="250px" alt="required home page">
+- given example:
+<img src="./src/assets/required_home_page.png" height="250px" alt="required home page">
+
+- result:
+<img src="./src/assets/result_home_page.png" height="250px" alt="result home page">
+
 ### Search Page
 - The **Search page** shows the **total number** of results
 - The **Search page** shows a list of article cards **from Ricardo's inventory** where each card contains:
@@ -20,6 +24,12 @@ example
 - Clicking on a product card (you can also add a link inside the product card if you prefer) navigates to the **Product Details Page**
 - Clicking the Ricardo logo navigates back to the **Home Page**
   
+- given example:
+<img src="./src/assets/required_search_results_page.png" height="250px" alt="required search page">
+
+- result:
+<img src="./src/assets/result_search_results_page.png" height="250px" alt="result search page">
+
 ### Product Details Page
 - The **Product Details Page** shows a bit more details about the product:
     - The image (big size)
@@ -29,6 +39,13 @@ example
     - The price
     - The description (formatted in HTML)
 - Clicking the Ricardo logo navigates back to the **Home Page**
+
+- given example:
+<img src="./src/assets/required_product_details_page.png" height="250px" alt="required product details page">
+
+- result:
+<img src="./src/assets/result_product_details_page.png" height="250px" alt="result product details page">
+
 
 ## to Run the project please follow the next steps:
 1. pull the project from the repo
