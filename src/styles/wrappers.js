@@ -48,7 +48,7 @@ export const ArticleWrapper = styled.div `
         min-width: 18rem;
         max-width: 45rem;
 
-        margin-right: 1.5rem;
+        margin-right: 2rem;
     };
 
     @media only screen and (max-width: 1024px) {
