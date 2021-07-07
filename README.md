@@ -45,6 +45,7 @@ Project structure and brief explanation:
 * global styles can be found in the **src/styles** otherwise each component style file is located in the same folder as the component itself at the same level as its index.jsx file 
 
 ```bash
+"
 Ricardo
 ├── node_modules
 ├── public
@@ -59,21 +60,21 @@ Ricardo
 │   │   └── logo.svg
 │   ├── components
 │   │   ├── ArticleCard
-│   │   │   ├── LargeCard           --> card for product details page
+│   │   │   ├── LargeCard           --> card for the product details page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
-│   │   │   ├── SmallCard           --> card for search results page
+│   │   │   ├── SmallCard           --> card for the search results page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
 │   │   │   └── index.jsx           --> import ArticleCard with an attribute type='small' / type='large'
 │   │   ├── Button                  --> button for startpage add attribute active='false' to have it unactivated
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
-│   │   ├── Layout                  --> for all layouts
+│   │   ├── Layout                  --> for all layouts, currently only has one file
 │   │   │   └── container.jsx       --> basic responsiveness, add attribute padding='true' for extra padding
 │   │   ├── Logo                    --> the logo wrapped with Link to home page
 │   │   │   └── index.jsx
-│   │   ├── NoKnownDataGoToHome     --> give's an option to go back home, otherwise reroute to home in 5 seconds
+│   │   ├── NoKnownDataGoToHome     --> gives an option to go back home, otherwise reroutes to home page in 5 seconds
 │   │   │   └── index.jsx
 │   │   ├── SearchInput             --> search input field
 │   │   │   ├── index.jsx
@@ -104,4 +105,5 @@ Ricardo
 ├── README.md
 ├── package.json
 └── yarn.lock
+"
 ```
