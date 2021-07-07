@@ -9,7 +9,7 @@ The application is described below
 - Clicking the `SEARCH` button goes to the **Search page**
 
 example [required home page](https://github.com/odedindi/Ricardo/blob/master/src/assets/required_home_page.png)
-
+    <img src="./src/assets/required_home_page.png">
 ### Search Page
 - The **Search page** shows the **total number** of results
 - The **Search page** shows a list of article cards **from Ricardo's inventory** where each card contains:
