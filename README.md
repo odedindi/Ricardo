@@ -8,7 +8,7 @@ The application is described below
 - `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `**SEARCH**` button.
 - Clicking the `SEARCH` button goes to the **Search page**
 
-example [required home page](./src/assets/result.png)
+example [required home page](./src/assets/required_home_page.png)
 
 ### Search Page
 - The **Search page** shows the **total number** of results
