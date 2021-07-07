@@ -8,6 +8,8 @@ The application is described below
 - `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `**SEARCH**` button.
 - Clicking the `SEARCH` button goes to the **Search page**
 
+example [required home page](/src/assets/result.png)
+
 ### Search Page
 - The **Search page** shows the **total number** of results
 - The **Search page** shows a list of article cards **from Ricardo's inventory** where each card contains:
