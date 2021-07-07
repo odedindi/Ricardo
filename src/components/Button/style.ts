@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button `
+export const Button = styled.button<ButtonProps> `
     height: 2.5rem;
     width: 6.5rem;
     

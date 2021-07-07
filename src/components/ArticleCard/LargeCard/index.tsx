@@ -1,4 +1,5 @@
-
+// ========================= react =========================
+import React from 'react';
 // ====================== components =====================
 import * as S from './style';
 import { Divider, Typography } from '@material-ui/core'
@@ -7,7 +8,7 @@ import DOMPurify from 'dompurify';
 // =======================================================
 
 
-const LargeCard = ({ article, user }) => (
+const LargeCard: React.FC<LargeCardProps> = ({ article, user }) => (
     <>
         <S.Card>
             <S.Content>

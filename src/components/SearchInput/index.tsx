@@ -1,8 +1,11 @@
+// ========================= react =========================
+import React from 'react';
 // ====================== styles ==========================
 import * as S from './style';
 // ========================================================
 
-const SearchInput = ({ onChangeHandler, onClickHandler, state }) => (
+
+const SearchInput: React.FC<SearchInputProps> = ({ onChangeHandler, onClickHandler, state }) => (
     <S.InputWrapper>
         <S.Input
             id="searchInput"
@@ -12,8 +15,10 @@ const SearchInput = ({ onChangeHandler, onClickHandler, state }) => (
             fullWidth={ true }
             size='small'
             value={ state }
-            onChange={ (event) => onChangeHandler(event) }
-            onKeyUp={ ({ key }) => key === 'Enter' && state.length ? onClickHandler() : ''}
+            onChange={ onChangeHandler }
+            onKeyUp={ ({ key }: React.KeyboardEvent) => 
+                key === 'Enter' && state.length ? onClickHandler() : ''
+            }
         />
     </S.InputWrapper>
 );

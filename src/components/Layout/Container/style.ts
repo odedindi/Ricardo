@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const ContainerWrapper = styled.div`
+
+export const ContainerWrapper = styled.div<ContainerProps>`
     position: relative;
     width: auto;
     margin-right: auto;
@@ -21,12 +22,3 @@ const ContainerWrapper = styled.div`
         padding: ${({ padding }) => (padding ? "3rem .75rem" : "1rem 2.5rem")};
     };
 `;
-
-const Container = ({ children, padding }) => (
-    <ContainerWrapper padding={ padding } >
-      { children }
-    </ContainerWrapper>
-  );
-  
-export default Container;
-  

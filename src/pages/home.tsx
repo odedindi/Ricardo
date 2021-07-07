@@ -1,6 +1,5 @@
 // ====================== react ===========================
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 // ====================== styles ==========================
 import { HomePageWrapper } from '../styles/wrappers';
@@ -14,18 +13,20 @@ import Button from '../components/Button';
 import SearchInput from '../components/SearchInput';
 // ========================================================
 
-const HomePage = () => {
-    const history = useHistory();
-    const [ searchText, setSearchText ] = useState('');
-    const [ , dispatch ] = useStore();
 
-    const onChangeHandler = ({ target }) => {
-        setSearchText(target.value)
+
+const HomePage: React.FC = () => {
+    const history = useHistory();
+    const [ searchText, setSearchText ] = useState<string>('');
+    const { dispatch } = useStore();
+
+    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        setSearchText(event.target.value)
     };
 
     const onClickHandler = () => {
         fetchSearchResults(searchText)
-        .then(data => {
+        .then((data: SearchResponse) => {
             dispatch(ACTION.searchResults(data));
             history.push(`/search/:${ searchText }`);
         })
@@ -39,7 +40,7 @@ const HomePage = () => {
                 onClickHandler={ onClickHandler }
             />
             <Button 
-                state={ searchText }
+                active={ searchText.length > 1 ? true : false }
                 onClickHandler={ onClickHandler }
             >
                 <SearchSharpIcon fontSize='small'/>

@@ -1,8 +1,9 @@
 // ========================= react =========================
+import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 // =========================================================
 
-const NoKnownDataGoToHome = () => {
+const NoKnownDataGoToHome: React.FC = () => {
     const history = useHistory();
 
     const goToHomePageInFiveSeconds = () => {

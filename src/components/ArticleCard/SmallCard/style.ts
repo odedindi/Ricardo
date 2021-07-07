@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Card as MCard, CardContent, 
-    CardMedia, Typography } from '@material-ui/core';
+    CardMedia, Typography, DefaultTypographyProps } from '@material-ui/core';
 
 
 export const Card = styled(MCard) `
@@ -22,7 +22,7 @@ export const TitleWrapper = styled.div `
     height: 95px;
 `
 
-export const Title = styled(Typography) `
+export const Title = styled(Typography)<DefaultTypographyProps>`
     font-size: 19px;
 `
 
@@ -30,7 +30,7 @@ export const EndingWrapper = styled.div `
     height: 55px;
 `
 
-export const Price = styled(Typography) `
+export const Price = styled(Typography)<DefaultTypographyProps>`
     font-size: 16px;
     font-family: sans-serif;
 `

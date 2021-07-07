@@ -1,13 +1,14 @@
-
+// ========================= react =========================
+import React from 'react';
 // ======================== style ========================
 import * as S from './style'; 
 // ====================== components =====================
 import { CardActionArea, CardActions, Typography } from '@material-ui/core';
 // =======================================================
 
-const SmallCard = ({ buyNowPrice, endDate, imageUrl, onClick, title }) => {
+const SmallCard: React.FC<SmallCardProps> = ({ buyNowPrice, endDate, imageUrl, onClick, title }) => {
 
-    const datePrettier = (string) => {
+    const datePrettier = (string: string) => {
         const splitedString = string.split('T')
         return `${ splitedString[0] } at ${ splitedString[1].slice(0,-1) }`
     }

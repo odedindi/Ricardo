@@ -1,4 +1,5 @@
 // ========================= react =========================
+import React from 'react';
 // ========================= style =========================
 import { ArticleWrapper } from '../styles/wrappers'
 // ======================== fetches ========================
@@ -9,9 +10,12 @@ import ArticleCard from "../components/ArticleCard";
 import NoKnownDataGoToHome from '../components/NoKnownDataGoToHome';
 // =========================================================
 
-const ProductDetailsPage = () => {
-    const [ { chosenArticle } ] = useStore();
-    if (!Object.entries(chosenArticle).length) { 
+
+const ProductDetailsPage: React.FC = () => {
+    const { state }: any = useStore();
+    const { chosenArticle } = state;
+
+    if (!chosenArticle.article) { 
         return <NoKnownDataGoToHome/>
     };
 

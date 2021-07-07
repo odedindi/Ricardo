@@ -2,12 +2,12 @@
 import * as C from '../helpers/constants'
 // ========================================================
 
-export const initialState = {
-    searchResults: [],
+export const initialState: State = {
+    searchResults: {},
     chosenArticle: {}
 };
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state: State = initialState, action: Action): State => {
     if (process.env.NODE_ENV === 'development') {
         console.log('from the reducer: ', action)
     };

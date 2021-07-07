@@ -1,4 +1,5 @@
 // ======================== react =========================
+import React from 'react';
 import { useHistory } from "react-router-dom";
 // ======================== styles ========================
 import { ResultsWrapper } from '../styles/wrappers'
@@ -12,14 +13,14 @@ import Container from '../components/Layout/Container';
 import NoKnownDataGoToHome from '../components/NoKnownDataGoToHome';
 // ========================================================
 
-const SearchPage = () => {
+const SearchPage: React.FC = () => {
     const history = useHistory();
-    const [ { searchResults }, dispatch ] = useStore();
-    const articles = searchResults.articles;
+    const { state, dispatch }:any = useStore();
+    const{ articles, totalCount }  = state.searchResults;
 
-    const onClickHandler = (id) => {
+    const onClickHandler = (id: Id) => {
         fetchArticleDetails(id)
-        .then(data => {
+        .then((data: ChosenArticle) => {
             dispatch(ACTION.chosenArticle(data));
             history.push(`/article/:${ id }`);
         });
@@ -30,10 +31,10 @@ const SearchPage = () => {
     };
     return (
         <Container padding={ true }>      
-            <p>Total count: { articles.length }</p>
+            <p>Total count: { totalCount }</p>
             <ResultsWrapper> 
                 {
-                    articles.map(article => 
+                    articles.map((article: ArticleDetails) => 
                         <ArticleCard 
                             key={ article.id } 
                             type='small'

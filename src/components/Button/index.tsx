@@ -1,10 +1,12 @@
+// ====================== react ===========================
+import React from 'react';
 // ====================== styles ==========================
 import * as S from './style';
 
 
-const Button = ({ children, onClickHandler, state }) => (
+const Button: React.FC<ButtonProps> = ({ active, children, onClickHandler }) => (
     <S.Button
-        active={ state.length > 0 ? true : false }
+        active={ active }
         onClick={ onClickHandler }
     >
         { children }   

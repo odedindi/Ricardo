@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card as MCard, CardContent, Typography } from '@material-ui/core';
+import { Card as MCard, CardContent, Typography, DefaultTypographyProps } from '@material-ui/core';
 
 export const Card = styled(MCard) `
     width: 43vw;
@@ -17,6 +17,6 @@ export const Content = styled(CardContent) `
     justify-content: space-between;
 `;
 
-export const Title = styled(Typography) `
+export const Title = styled(Typography)<DefaultTypographyProps> `
     font-weight: bold;
 `;

@@ -11,12 +11,13 @@ import Routes from './routes';
 // ========================================================
 
 
+
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider>
       <ThemeProvider theme={ theme }>
-        <GlobalStyle />
-          <Routes />
+          <GlobalStyle />
+          <Routes/>
       </ThemeProvider>
     </StoreProvider>
   </React.StrictMode>,

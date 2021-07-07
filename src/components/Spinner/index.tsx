@@ -1,9 +1,11 @@
+// ========================= react =========================
+import React from 'react';
 // ====================== styles ==========================
 import * as S from './style';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // ========================================================
 
-const Spinner = () => (
+const Spinner: React.FC = () => (
     <S.SpinnerWrapper>
         <CircularProgress/>
         <h2>Loading...</h2>
