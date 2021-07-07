@@ -44,6 +44,7 @@ Project structure and brief explanation:
 * by principle, only a component folder name start with a capitle letter.
 * global styles can be found in the **src/styles** otherwise each component style file is located in the same folder as the component itself at the same level as its index.jsx file 
 
+```bash
 Ricardo
 ├── node_modules
 ├── public
@@ -103,3 +104,4 @@ Ricardo
 ├── README.md
 ├── package.json
 └── yarn.lock
+```
