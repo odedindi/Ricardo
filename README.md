@@ -29,11 +29,11 @@ The application is described below
 - Clicking the Ricardo logo navigates back to the **Home Page**
 
 ## to Run the project please follow the next steps:
-  1. pull the project from the repo
+1. pull the project from the repo
 
 * to have successful fetches please add **.env** file on root level and create a variable with the name **REACT_APP_RICARDO_RECRUITMENT_API_TOKEN** with your secret API token.
   
-  2. In the project directory, run yarn install and then yarn start
+2. In the project directory, run yarn install and then yarn start
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
