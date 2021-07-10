@@ -1,27 +1,21 @@
 // ====================== react ===========================
-import React, { createContext, Dispatch, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from 'react';
 // ================ reducer and state =====================
-import { initialState, reducer } from './reducer'
+import { initialState, reducer } from './reducer';
 // ========================================================
 
-export const Store = createContext<{
-    state: State;
-    dispatch: Dispatch<Action>;
-}>({
-    state: initialState,
-    dispatch: () => undefined
-});
+const Store = createContext<Store>([initialState, reducer]);
 
-export const useStore = () => useContext(Store);
+const useStore = (): Store => useContext(Store);
 
-export const StoreProvider: React.FC = ({ children }): JSX.Element=> {
-    const [ state, dispatch ] = useReducer(reducer, initialState);
+const StoreProvider: React.FC = ({ children }): JSX.Element => {
+	const [state, dispatch] = useReducer(reducer, initialState);
 
-    return (
-        <Store.Provider value={{ state, dispatch }}>
-            { children }
-        </Store.Provider>
-    );
+	return (
+		<Store.Provider value={[state, dispatch]}>
+			{children}
+		</Store.Provider>
+	);
 };
 
-
+export { useStore, StoreProvider };
