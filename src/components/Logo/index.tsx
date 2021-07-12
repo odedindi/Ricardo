@@ -5,12 +5,18 @@ import { Link } from 'react-router-dom';
 import * as S from './style';
 // ======================== logo ===========================
 import logo from '../../assets/logo.svg';
+// ====================== components =======================
+import Breadcrumbs from './Breadcrumbs';
 // =========================================================
-
-const Logo: React.FC = () => (
-	<Link to={'/'}>
-		<S.Logo src={logo} alt="Ricardo's Logo" />
-	</Link>
-);
+const Logo: React.FC = () => {
+	return (
+		<>
+			<Link to={'/'}>
+				<S.Logo src={logo} alt="Ricardo's Logo" />
+			</Link>
+			<Breadcrumbs />
+		</>
+	);
+};
 
 export default Logo;
