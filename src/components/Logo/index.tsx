@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
 	return (
 		<>
 			<Link to={'/'}>
-				<S.Logo src={logo} alt="Ricardo's Logo" />
+				<S.Logo data-testid="logo" src={logo} alt="Ricardo's Logo" />
 			</Link>
 			<Breadcrumbs />
 		</>

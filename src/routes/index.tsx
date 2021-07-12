@@ -5,6 +5,7 @@ import {
 	Redirect,
 	Route,
 	Switch,
+	useLocation,
 } from 'react-router-dom';
 // ==================== components ========================
 import Spinner from '../components/Spinner';
@@ -19,6 +20,14 @@ const ProductDetailsPage = lazy(
 	() => import('../pages/productDetails'),
 );
 // ========================================================
+
+export const LocationDisplay = () => {
+	const location = useLocation();
+
+	return (
+		<div data-testid="location-display">{location.pathname}</div>
+	);
+};
 
 const Routes: React.FC = () => (
 	<Router>

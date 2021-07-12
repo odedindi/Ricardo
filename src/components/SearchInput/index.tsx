@@ -12,6 +12,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 	<S.InputWrapper>
 		<S.Input
 			id="searchInput"
+			data-testid="searchInput"
 			label="Search text"
 			variant="outlined"
 			autoFocus={true}

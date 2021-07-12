@@ -8,7 +8,11 @@ const Button: React.FC<ButtonProps> = ({
 	children,
 	onClickHandler,
 }) => (
-	<S.Button active={active} onClick={onClickHandler}>
+	<S.Button
+		data-testid="searchButton"
+		active={active}
+		disabled={!active}
+		onClick={onClickHandler}>
 		{children}
 	</S.Button>
 );

@@ -1,5 +1,5 @@
 // ====================== react ===========================
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // ====================== styles ==========================
 import { HomePageWrapper } from '../styles/wrappers';
@@ -16,6 +16,14 @@ import SearchInput from '../components/SearchInput';
 const HomePage: React.FC = () => {
 	const history = useHistory();
 	const [searchText, setSearchText] = useState<string>('');
+	const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
+	useEffect(() => {
+		if(searchText.length > 0) {
+			setIsButtonActive(true)
+		} else {
+			setIsButtonActive(false);
+		}
+	}, [searchText])
 	const [, dispatch]: Store = useStore();
 
 	const onChangeHandler = (
@@ -39,7 +47,7 @@ const HomePage: React.FC = () => {
 				onClickHandler={onClickHandler}
 			/>
 			<Button
-				active={searchText.length > 1 ? true : false}
+				active={isButtonActive}
 				onClickHandler={onClickHandler}>
 				<SearchSharpIcon fontSize="small" />
 				Search
