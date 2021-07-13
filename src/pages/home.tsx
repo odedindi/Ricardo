@@ -16,12 +16,12 @@ import SearchInput from '../components/SearchInput';
 const HomePage: React.FC = () => {
 	const history = useHistory();
 	const [searchText, setSearchText] = useState<string>('');
-	const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
+	const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
 	useEffect(() => {
 		if(searchText.length > 0) {
-			setIsButtonActive(true)
+			setIsButtonDisabled(false)
 		} else {
-			setIsButtonActive(false);
+			setIsButtonDisabled(true);
 		}
 	}, [searchText])
 	const [, dispatch]: Store = useStore();
@@ -38,16 +38,15 @@ const HomePage: React.FC = () => {
 			history.push(`/search/:${searchText}`);
 		});
 	};
-
 	return (
 		<HomePageWrapper>
 			<SearchInput
-				state={searchText}
+				value={searchText}
 				onChangeHandler={onChangeHandler}
 				onClickHandler={onClickHandler}
 			/>
 			<Button
-				active={isButtonActive}
+				isButtonDisabled={isButtonDisabled}
 				onClickHandler={onClickHandler}>
 				<SearchSharpIcon fontSize="small" />
 				Search

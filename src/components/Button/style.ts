@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button<ButtonProps>`
+export const Button = styled.button`
 	height: 2.5rem;
 	width: 6.5rem;
 
@@ -12,18 +12,18 @@ export const Button = styled.button<ButtonProps>`
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 0.65rem;
-	color: ${({ active, theme }) =>
-		active === false ? 'lightgray' : theme.colors.blue};
+	color: ${({ disabled, theme }) =>
+		disabled ? 'lightgray' : theme.colors.blue};
 
 	border: solid 1px
-		${({ active, theme }) =>
-			active === false ? 'lightgray' : theme.colors.elementBorder};
+		${({ disabled, theme }) =>
+			disabled ? 'lightgray' : theme.colors.elementBorder};
 	border-radius: 0.125rem;
 
-	pointer-events: ${({ active }) =>
-		active === false ? 'none' : 'all'};
-	cursor: ${({ active }) =>
-		active === false ? 'not-allowed' : 'pointer'};
+	pointer-events: ${({ disabled }) =>
+		disabled ? 'none' : 'all'};
+	cursor: ${({ disabled }) =>
+		disabled ? 'not-allowed' : 'pointer'};
 
 	transition: all 0.2s ease-in-out;
 

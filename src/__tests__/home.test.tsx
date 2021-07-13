@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { MemoryRouter } from 'react-router-dom';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { theme } from '../styles';
@@ -31,14 +31,20 @@ describe('<HomePage/>', () => {
 
 
     test('when any input is entered to the input field the search button becomes clickable', async () => {
-        const { getByTestId } = renderPage(theme);
+        const { getByTestId, getByRole } = renderPage(theme);
     
-        const searchInput = getByTestId('searchInput');
-        const searchButton = getByTestId('searchButton');
-        expect(searchButton).toBeDisabled();
-        fireEvent.change(searchInput, { target: { searchText: 'some text'}})
-        expect(searchButton).not.toBeDisabled();
+		type TestElement = Document | Element | Window | Node
 
+		const checkInputValue = (event: TestElement, inputValue: string): boolean => screen.getByDisplayValue(inputValue) === event;
+        
+		const searchInput = getByRole('textbox');
+        const searchButton = getByTestId('searchButton');
+        expect(searchButton).toHaveAttribute('disabled');
+		expect(searchButton).toBeDisabled();
+        fireEvent.change(searchInput, { target: { value: 'some text'}})
+        expect(checkInputValue(searchInput, 'some text')).toBe(true)
+		expect(searchButton).not.toHaveAttribute('disabled');
+		expect(searchButton).not.toBeDisabled();
     });
 });
 

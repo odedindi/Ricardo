@@ -7,7 +7,7 @@ import * as S from './style';
 const SearchInput: React.FC<SearchInputProps> = ({
 	onChangeHandler,
 	onClickHandler,
-	state,
+	value,
 }) => (
 	<S.InputWrapper>
 		<S.Input
@@ -18,10 +18,10 @@ const SearchInput: React.FC<SearchInputProps> = ({
 			autoFocus={true}
 			fullWidth={true}
 			size="small"
-			value={state}
+			value={value}
 			onChange={onChangeHandler}
 			onKeyUp={({ key }: React.KeyboardEvent) =>
-				key === 'Enter' && state.length ? onClickHandler() : ''
+				key === 'Enter' && value.length ? onClickHandler() : ''
 			}
 		/>
 	</S.InputWrapper>

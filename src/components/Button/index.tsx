@@ -4,14 +4,13 @@ import React from 'react';
 import * as S from './style';
 
 const Button: React.FC<ButtonProps> = ({
-	active,
+	isButtonDisabled,
 	children,
 	onClickHandler,
 }) => (
 	<S.Button
 		data-testid="searchButton"
-		active={active}
-		disabled={!active}
+		disabled={isButtonDisabled}
 		onClick={onClickHandler}>
 		{children}
 	</S.Button>

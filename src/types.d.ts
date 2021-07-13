@@ -68,11 +68,11 @@ type SearchInputProps = {
 		event: React.ChangeEvent<HTMLInputElement>,
 	) => void;
 	onClickHandler: () => void;
-	state: string;
+	value: string;
 };
 
 type ButtonProps = {
-	active: boolean;
+	isButtonDisabled: boolean;
 	onClickHandler?: () => void;
 };
 
