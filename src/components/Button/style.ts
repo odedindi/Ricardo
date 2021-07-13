@@ -20,10 +20,8 @@ export const Button = styled.button`
 			disabled ? 'lightgray' : theme.colors.elementBorder};
 	border-radius: 0.125rem;
 
-	pointer-events: ${({ disabled }) =>
-		disabled ? 'none' : 'all'};
-	cursor: ${({ disabled }) =>
-		disabled ? 'not-allowed' : 'pointer'};
+	pointer-events: ${({ disabled }) => (disabled ? 'none' : 'all')};
+	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
 	transition: all 0.2s ease-in-out;
 

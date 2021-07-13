@@ -29,22 +29,23 @@ describe('<HomePage/>', () => {
 		expect(searchButton).toBeDisabled();
 	});
 
+	test('when any input is entered to the input field the search button becomes clickable', async () => {
+		const { getByTestId, getByRole } = renderPage(theme);
 
-    test('when any input is entered to the input field the search button becomes clickable', async () => {
-        const { getByTestId, getByRole } = renderPage(theme);
-    
-		type TestElement = Document | Element | Window | Node
+		type TestElement = Document | Element | Window | Node;
 
-		const checkInputValue = (event: TestElement, inputValue: string): boolean => screen.getByDisplayValue(inputValue) === event;
-        
+		const checkInputValue = (
+			event: TestElement,
+			inputValue: string,
+		): boolean => screen.getByDisplayValue(inputValue) === event;
+
 		const searchInput = getByRole('textbox');
-        const searchButton = getByTestId('searchButton');
-        expect(searchButton).toHaveAttribute('disabled');
+		const searchButton = getByTestId('searchButton');
+		expect(searchButton).toHaveAttribute('disabled');
 		expect(searchButton).toBeDisabled();
-        fireEvent.change(searchInput, { target: { value: 'some text'}})
-        expect(checkInputValue(searchInput, 'some text')).toBe(true)
+		fireEvent.change(searchInput, { target: { value: 'some text' } });
+		expect(checkInputValue(searchInput, 'some text')).toBe(true);
 		expect(searchButton).not.toHaveAttribute('disabled');
 		expect(searchButton).not.toBeDisabled();
-    });
+	});
 });
-

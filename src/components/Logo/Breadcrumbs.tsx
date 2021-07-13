@@ -23,12 +23,12 @@ const Breadcrumbs = (): JSX.Element => {
 	const paths = useLocation().pathname.split('/');
 	const breadcrumbIconSize = { width: 15, height: 15 };
 
-	if ( !paths[1].length) {
+	if (!paths[1].length) {
 		return (
 			<Bc separator="›" aria-label="breadcrumb">
 				<Link color="inherit">{''}</Link>
-			</Bc>			
-		)
+			</Bc>
+		);
 	}
 	if (paths[1] === 'search') {
 		return (

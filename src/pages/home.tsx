@@ -16,14 +16,15 @@ import SearchInput from '../components/SearchInput';
 const HomePage: React.FC = () => {
 	const history = useHistory();
 	const [searchText, setSearchText] = useState<string>('');
-	const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+	const [isButtonDisabled, setIsButtonDisabled] =
+		useState<boolean>(true);
 	useEffect(() => {
-		if(searchText.length > 0) {
-			setIsButtonDisabled(false)
+		if (searchText.length > 0) {
+			setIsButtonDisabled(false);
 		} else {
 			setIsButtonDisabled(true);
 		}
-	}, [searchText])
+	}, [searchText]);
 	const [, dispatch]: Store = useStore();
 
 	const onChangeHandler = (
