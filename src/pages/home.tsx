@@ -10,7 +10,7 @@ import { fetchSearchResults } from '../helpers/fetches';
 import * as ACTION from '../store/actions';
 // ==================== components ========================
 import Button from '../components/Button';
-import SearchInput from '../components/SearchInput';
+import SearchInput from '../components/Input';
 // ========================================================
 
 const HomePage: React.FC = () => {

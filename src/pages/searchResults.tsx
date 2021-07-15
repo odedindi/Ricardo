@@ -35,7 +35,7 @@ const SearchPage: React.FC = () => {
 				{articles.map((article: ArticleDetails) => (
 					<ArticleCard
 						key={article.id}
-						type="small"
+						type="searchResultsCard"
 						onClick={() => onClickHandler(article.id)}
 						{...article}
 					/>

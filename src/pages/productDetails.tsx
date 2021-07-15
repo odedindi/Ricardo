@@ -25,7 +25,7 @@ const ProductDetailsPage: React.FC = () => {
 					src={chosenArticle.article.imageUrl}
 					alt={chosenArticle.article.title}
 				/>
-				<ArticleCard type="large" {...chosenArticle} />
+				<ArticleCard type="productDetailsCard" {...chosenArticle} />
 			</ArticleWrapper>
 		</Container>
 	);

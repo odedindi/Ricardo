@@ -7,7 +7,10 @@ import { Divider, Typography } from '@material-ui/core';
 import DOMPurify from 'dompurify';
 // =======================================================
 
-const LargeCard: React.FC<LargeCardProps> = ({ article, user }) => (
+const ProductDetailsCard: React.FC<ProductDetailsCardProps> = ({
+	article,
+	user,
+}) => (
 	<>
 		<S.Card>
 			<S.Content>
@@ -45,4 +48,4 @@ const LargeCard: React.FC<LargeCardProps> = ({ article, user }) => (
 		</S.Card>
 	</>
 );
-export default LargeCard;
+export default ProductDetailsCard;

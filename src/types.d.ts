@@ -76,8 +76,10 @@ type ButtonProps = {
 	onClickHandler?: () => void;
 };
 
-type LargeCardProps =
+type ProductDetailsCardProps =
 	| { article: ArticleDetails; user: User; type: string }
 	| any;
-type SmallCardProps = { article: SearchArticle; type: string } | any;
+type SearchResultsCardProps =
+	| { article: SearchArticle; type: string }
+	| any;
 type ArticleCardProps = LargeCardProps | SmallCardProps;

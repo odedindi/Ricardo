@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 // =======================================================
 
-const SmallCard: React.FC<SmallCardProps> = ({
+const SearchResultsCard: React.FC<SearchResultsCardProps> = ({
 	buyNowPrice,
 	endDate,
 	imageUrl,
@@ -48,4 +48,4 @@ const SmallCard: React.FC<SmallCardProps> = ({
 	);
 };
 
-export default SmallCard;
+export default SearchResultsCard;
