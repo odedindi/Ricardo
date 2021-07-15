@@ -18,7 +18,7 @@ export const HomePageWrapper = styled.div`
 `;
 
 export const ResultsWrapper = styled.div`
-	padding-top: 1rem;
+	padding: 1rem 0 1.25rem 0;
 
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));

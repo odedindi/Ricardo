@@ -1,8 +1,9 @@
 // ======================== react =========================
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // ======================== styles ========================
 import { ResultsWrapper } from '../styles/wrappers';
+import Pagination from '@material-ui/lab/Pagination';
 // ======================= fetches ========================
 import { useStore } from '../store';
 import { fetchArticleDetails } from '../helpers/fetches';
@@ -18,6 +19,41 @@ const SearchPage: React.FC = () => {
 	const [state, dispatch]: Store = useStore();
 	const { articles, totalCount }: any = state.searchResults;
 
+	const [searchResults, setSearchResults] = useState<
+		ArticleDetails[]
+	>([]);
+	useEffect(() => {
+		setSearchResults(articles);
+	}, [articles]);
+
+	const [page, setPage] = useState<number>(1);
+	const [pageSize] = useState<number>(10);
+	const calcNumbOfPages = (numOfArticles: number) =>
+		Math.ceil(numOfArticles / 10);
+	const [pagesCount, setPagesCount] = useState<number>(
+		calcNumbOfPages(totalCount),
+	);
+	useEffect(() => {
+		setPagesCount(calcNumbOfPages(totalCount));
+	}, [totalCount]);
+
+	if (!searchResults) {
+		return <NoKnownDataGoToHome />;
+	}
+
+	const handleChange = (
+		event: any,
+		value: React.SetStateAction<number>,
+	) => {
+		console.log('typeof event: ', typeof event, 'event: ', event);
+		setPage(value);
+	};
+
+	const pageContent = (array: ArticleDetails[]) =>
+		array.length <= pageSize
+			? array
+			: array.slice(page * pageSize, page * pageSize + pageSize);
+
 	const onClickHandler = (id: Id) => {
 		fetchArticleDetails(id).then((data: ChosenArticle) => {
 			dispatch(ACTION.chosenArticle(data));
@@ -25,14 +61,11 @@ const SearchPage: React.FC = () => {
 		});
 	};
 
-	if (!articles) {
-		return <NoKnownDataGoToHome />;
-	}
 	return (
 		<Container padding={true}>
 			<p>Total count: {totalCount}</p>
 			<ResultsWrapper>
-				{articles.map((article: ArticleDetails) => (
+				{pageContent(searchResults).map((article: ArticleDetails) => (
 					<ArticleCard
 						key={article.id}
 						type="searchResultsCard"
@@ -41,6 +74,13 @@ const SearchPage: React.FC = () => {
 					/>
 				))}
 			</ResultsWrapper>
+			{pagesCount > 1 && (
+				<Pagination
+					count={pagesCount}
+					page={page}
+					onChange={handleChange}
+				/>
+			)}
 		</Container>
 	);
 };

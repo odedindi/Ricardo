@@ -9,19 +9,22 @@ import {
 } from '@material-ui/core';
 // ======================== icon ===========================
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
+// =========================================================
 
 const Breadcrumbs = (): JSX.Element => {
 	const history = useHistory();
-
 	const breadrumbClickHandler = (
 		event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-	) => {
+	): void => {
 		event.preventDefault();
 		history.goBack();
 	};
 
-	const paths = useLocation().pathname.split('/');
-	const breadcrumbIconSize = { width: 15, height: 15 };
+	const paths: string[] = useLocation().pathname.split('/');
+	const breadcrumbIconSize: {
+		width: number;
+		height: number;
+	} = { width: 12.5, height: 12.5 };
 
 	if (!paths[1].length) {
 		return (
