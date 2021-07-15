@@ -83,3 +83,21 @@ type SearchResultsCardProps =
 	| { article: SearchArticle; type: string }
 	| any;
 type ArticleCardProps = LargeCardProps | SmallCardProps;
+
+type PaginationProps = {
+	articlesPerPage: number;
+	changeArticlesPerPageHandler:
+		| ((
+				event: React.ChangeEvent<{
+					name?: string | undefined;
+					value: unknown;
+				}>,
+				child: React.ReactNode,
+		  ) => void)
+		| undefined;
+	changePageHandler:
+		| ((event: React.ChangeEvent<unknown>, page: number) => void)
+		| undefined;
+	page: number;
+	pagesCount: number;
+};

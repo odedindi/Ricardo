@@ -1,9 +1,8 @@
 // ======================== react =========================
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // ======================== styles ========================
 import { ResultsWrapper } from '../styles/wrappers';
-import Pagination from '@material-ui/lab/Pagination';
 // ======================= fetches ========================
 import { useStore } from '../store';
 import { fetchArticleDetails } from '../helpers/fetches';
@@ -12,6 +11,7 @@ import * as ACTION from '../store/actions';
 import ArticleCard from '../components/ArticleCard';
 import Container from '../components/Layout/Container';
 import NoKnownDataGoToHome from '../components/NoKnownDataGoToHome';
+import Pagination from '../components/SearchResultsPagination';
 // ========================================================
 
 const SearchPage: React.FC = () => {
@@ -27,21 +27,30 @@ const SearchPage: React.FC = () => {
 	}, [articles]);
 
 	const [page, setPage] = useState<number>(1);
-	const [pageSize] = useState<number>(10);
-	const calcNumbOfPages = (numOfArticles: number) =>
-		Math.ceil(numOfArticles / 10);
+	const [articlesPerPage, setArticlesPerPage] = useState<number>(10);
+	const changeArticlesPerPageHandler = (
+		event: React.ChangeEvent<{ value: unknown }>,
+	) => setArticlesPerPage(Number(event.target.value));
+
+	const calcNumbOfPages = useCallback(
+		(numOfArticles: number): number => {
+			return Math.ceil(numOfArticles / articlesPerPage);
+		},
+		[articlesPerPage],
+	);
+
 	const [pagesCount, setPagesCount] = useState<number>(
 		calcNumbOfPages(totalCount),
 	);
 	useEffect(() => {
 		setPagesCount(calcNumbOfPages(totalCount));
-	}, [totalCount]);
+	}, [calcNumbOfPages, totalCount]);
 
 	if (!searchResults) {
 		return <NoKnownDataGoToHome />;
 	}
 
-	const handleChange = (
+	const changePageHandler = (
 		event: any,
 		value: React.SetStateAction<number>,
 	) => {
@@ -50,9 +59,12 @@ const SearchPage: React.FC = () => {
 	};
 
 	const pageContent = (array: ArticleDetails[]) =>
-		array.length <= pageSize
+		array.length <= articlesPerPage
 			? array
-			: array.slice(page * pageSize, page * pageSize + pageSize);
+			: array.slice(
+					page * articlesPerPage,
+					page * articlesPerPage + articlesPerPage,
+			  );
 
 	const onClickHandler = (id: Id) => {
 		fetchArticleDetails(id).then((data: ChosenArticle) => {
@@ -61,9 +73,20 @@ const SearchPage: React.FC = () => {
 		});
 	};
 
+	const ResultsPagination = () => (
+		<Pagination
+			articlesPerPage={articlesPerPage}
+			changeArticlesPerPageHandler={changeArticlesPerPageHandler}
+			changePageHandler={changePageHandler}
+			page={page}
+			pagesCount={pagesCount}
+		/>
+	);
+
 	return (
 		<Container padding={true}>
 			<p>Total count: {totalCount}</p>
+			<ResultsPagination/>
 			<ResultsWrapper>
 				{pageContent(searchResults).map((article: ArticleDetails) => (
 					<ArticleCard
@@ -74,13 +97,7 @@ const SearchPage: React.FC = () => {
 					/>
 				))}
 			</ResultsWrapper>
-			{pagesCount > 1 && (
-				<Pagination
-					count={pagesCount}
-					page={page}
-					onChange={handleChange}
-				/>
-			)}
+			<ResultsPagination/>
 		</Container>
 	);
 };
