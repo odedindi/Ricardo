@@ -1,53 +1,60 @@
 // ====================== react ===========================
-
-import { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import * as React from 'react';
+import { useHistory } from 'react-router-dom';
 // ====================== styles ==========================
 import { HomePageWrapper } from '../styles/wrappers';
-import SearchSharpIcon from '@material-ui/icons/SearchSharp'
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 // ====================== fetches =========================
 import { useStore } from '../store';
 import { fetchSearchResults } from '../helpers/fetches';
-import * as ACTION from '../store/actions'
+import * as ACTION from '../store/actions';
 // ==================== components ========================
 import Button from '../components/Button';
-import SearchInput from '../components/SearchInput';
+import SearchInput from '../components/Input';
 // ========================================================
 
 const HomePage = () => {
-    const history = useHistory();
-    const [ searchText, setSearchText ] = useState('');
-    const [ , dispatch ] = useStore();
+	const history = useHistory();
+	const [, dispatch] = useStore();
+	const [searchText, setSearchText] = React.useState('');
+	const [isButtonDisabled, setIsButtonDisabled] =
+		React.useState(true);
 
-    const onChangeHandler = ({ target }) => {
-        setSearchText(target.value)
-    };
+	React.useEffect(() => {
+		if (searchText.length) {
+			setIsButtonDisabled(false);
+		} else {
+			setIsButtonDisabled(true);
+		}
+	}, [searchText]);
 
-    const onClickHandler = () => {
-        fetchSearchResults(searchText)
-        .then(data => {
-            dispatch(ACTION.searchResults(data));
-            history.push(`/search/:${ searchText }`);
-        })
-    };
-        
-    return (
-        <HomePageWrapper>
-            <SearchInput
-                state={ searchText }
-                onChangeHandler={ onChangeHandler }
-                onClickHandler={ onClickHandler }
-            />
-            <Button 
-                state={ searchText }
-                onClickHandler={ onClickHandler }
-            >
-                <SearchSharpIcon fontSize='small'/>
-                Search
-            </Button>
+	const onChangeHandler = ({ target }) => {
+		setSearchText(target.value);
+	};
 
-        </HomePageWrapper>
-    );
+	const onClickHandler = () => {
+		fetchSearchResults(searchText).then((data) => {
+			dispatch(ACTION.searchResults(data));
+			history.push(`/search/:${searchText}`);
+		});
+	};
+
+	return (
+		<HomePageWrapper>
+			<SearchInput
+				value={searchText}
+				onChangeHandler={onChangeHandler}
+				onClickHandler={onClickHandler}
+			/>
+			<Button
+				state={searchText}
+				isButtonDisabled={isButtonDisabled}
+				onClickHandler={onClickHandler}>
+				<SearchSharpIcon fontSize="small" />
+				Search
+			</Button>
+		</HomePageWrapper>
+	);
 };
 
 export default HomePage;

@@ -1,10 +1,11 @@
-import LargeCard from './LargeCard';
-import SmallCard from './SmallCard';
-
+import ProductDetailsCard from './ProductDetailsCard';
+import SearchResultsCard from './SearchResultsCard';
 
 const ArticleCard = (props) => {
-    if (props.type === 'large') return <LargeCard { ...props }/>
-    if (props.type === 'small') return <SmallCard { ...props }/>
-    return null;
+	if (props.type === 'productDetailsCard')
+		return <ProductDetailsCard {...props} />;
+	if (props.type === 'searchResultsCard')
+		return <SearchResultsCard {...props} />;
+	return null;
 };
 export default ArticleCard;
