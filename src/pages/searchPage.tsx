@@ -42,13 +42,6 @@ const SearchPage = () => {
 		setSearchResults({ articles: articles, totalCount: totalCount });
 	}, [articles, totalCount]);
 
-	if (
-		!searchResults.articles ||
-		searchResults.articles === undefined
-	) {
-		<Spinner />;
-	}
-
 	// pagination logic
 	const [page, setPage] = React.useState<number>(1);
 	const [articlesPerPage, setArticlesPerPage] =
@@ -117,8 +110,10 @@ const SearchPage = () => {
 			<p>Total count: {totalCount}</p>
 			<ResultsPagination />
 			<ResultsWrapper id="cardsContainer">
-				{searchResults.articles &&
-					searchResults.articles.length &&
+				{!searchResults.articles ||
+				searchResults.articles === undefined ? (
+					<Spinner />
+				) : (
 					pageContent(searchResults.articles).map(
 						(article: ArticleDetails) => (
 							<ArticleCard
@@ -129,7 +124,8 @@ const SearchPage = () => {
 								{...article}
 							/>
 						),
-					)}
+					)
+				)}
 			</ResultsWrapper>
 			<ResultsPagination />
 		</Container>
