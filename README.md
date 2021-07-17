@@ -5,6 +5,8 @@
 The goal of this exercise is to build a (very) **small version of Ricardo** using Ricardo's api.
 The application is described below
 
+* The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but type logic is not perfect.
+
 ### Home Page
 
 - Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `search` button
@@ -82,25 +84,23 @@ Ricardo
 │   │   └── logo.svg
 │   ├── components
 │   │   ├── ArticleCard
-│   │   │   ├── LargeCard           --> card for the product details page
+│   │   │   ├── ProductDetailsCard  --> card for the product details page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
-│   │   │   ├── SmallCard           --> card for the search results page
+│   │   │   ├── SearchResultsCard   --> card for the search results page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
 │   │   │   └── index.jsx           --> import ArticleCard with an attribute type='small' / type='large'
 │   │   ├── Button                  --> button for startpage add attribute active='false' to have it unactivated
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
+│   │   ├── Input                   --> search input field
+│   │   │   ├── index.jsx
+│   │   │   └── style.js
 │   │   ├── Layout                  --> for all layouts, currently only has one file
 │   │   │   └── container.jsx       --> basic responsiveness, add attribute padding='true' for extra padding
 │   │   ├── Logo                    --> the logo wrapped with Link to home page
 │   │   │   └── index.jsx
-│   │   ├── NoKnownDataGoToHome     --> gives an option to go back home, otherwise reroutes to home page in 5 seconds
-│   │   │   └── index.jsx
-│   │   ├── SearchInput             --> search input field
-│   │   │   ├── index.jsx
-│   │   │   └── style.js
 │   │   └── Spinner                 --> spinner to show until data is loaded
 │   │       ├── index.jsx
 │   │       └── style.js
@@ -110,7 +110,7 @@ Ricardo
 │   ├── pages                       --> the project pages, currently only 3
 │   │   ├── home.jsx
 │   │   ├── productDetails.jsx
-│   │   └── searchResults.jsx
+│   │   └── searchPage.jsx
 │   ├── routes                      --> the basic structure and all routes
 │   │   └── index.jsx
 │   ├── store                       --> project's store, actions and reducer, currently based on the context API
