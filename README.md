@@ -5,10 +5,12 @@
 The goal of this exercise is to build a (very) **small version of Ricardo** using Ricardo's api.
 The application is described below
 
+** The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but types logic is not perfect.
+
 ### Home Page
 
-- Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `search` button
-- `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `**SEARCH**` button.
+- Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `SEARCH` button
+- `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `SEARCH` button.
 - Clicking the `SEARCH` button goes to the **Search page**
 
 - given example:
@@ -63,7 +65,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Project structure and brief explanation:
 
-- by principle, only a component folder name start with a capitle letter.
+- by principle, only a component folder name start with a capital letter.
 - global styles can be found in the **src/styles** otherwise each component style file is located in the same folder as the component itself at the same level as its index.jsx file
 
 ```bash
@@ -78,27 +80,30 @@ Ricardo
 │   ├── manifest.json
 │   └── robots.txt
 ├── src
+│   ├── __tests__                   --> tests folder
+│   │   └── home.test.tsx           --> contains 2 tests for the home page requiremets
 │   ├── asstes
 │   │   └── logo.svg
 │   ├── components
 │   │   ├── ArticleCard
-│   │   │   ├── LargeCard           --> card for the product details page
+│   │   │   ├── ProductDetailsCard  --> card for the product details page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
-│   │   │   ├── SmallCard           --> card for the search results page
+│   │   │   ├── SearchResultsCard   --> card for the search results page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
 │   │   │   └── index.jsx           --> import ArticleCard with an attribute type='small' / type='large'
 │   │   ├── Button                  --> button for startpage add attribute active='false' to have it unactivated
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
+│   │   ├── Input                   --> search input field
+│   │   │   ├── index.jsx
+│   │   │   └── style.js
 │   │   ├── Layout                  --> for all layouts, currently only has one file
 │   │   │   └── container.jsx       --> basic responsiveness, add attribute padding='true' for extra padding
 │   │   ├── Logo                    --> the logo wrapped with Link to home page
 │   │   │   └── index.jsx
-│   │   ├── NoKnownDataGoToHome     --> gives an option to go back home, otherwise reroutes to home page in 5 seconds
-│   │   │   └── index.jsx
-│   │   ├── SearchInput             --> search input field
+│   │   ├── SearchResultsPagination --> search page pagination component
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
 │   │   └── Spinner                 --> spinner to show until data is loaded
@@ -110,7 +115,7 @@ Ricardo
 │   ├── pages                       --> the project pages, currently only 3
 │   │   ├── home.jsx
 │   │   ├── productDetails.jsx
-│   │   └── searchResults.jsx
+│   │   └── searchPage.jsx
 │   ├── routes                      --> the basic structure and all routes
 │   │   └── index.jsx
 │   ├── store                       --> project's store, actions and reducer, currently based on the context API
