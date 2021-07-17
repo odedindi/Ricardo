@@ -1,5 +1,5 @@
 // ========================= react =========================
-import React from 'react';
+import * as React from 'react';
 // ====================== components =====================
 import * as S from './style';
 import { Divider, Typography } from '@material-ui/core';

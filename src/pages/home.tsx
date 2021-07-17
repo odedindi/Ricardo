@@ -1,5 +1,5 @@
 // ====================== react ===========================
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 // ====================== styles ==========================
 import { HomePageWrapper } from '../styles/wrappers';
@@ -15,10 +15,10 @@ import SearchInput from '../components/Input';
 
 const HomePage: React.FC = () => {
 	const history = useHistory();
-	const [searchText, setSearchText] = useState<string>('');
+	const [searchText, setSearchText] = React.useState<string>('');
 	const [isButtonDisabled, setIsButtonDisabled] =
-		useState<boolean>(true);
-	useEffect(() => {
+		React.useState<boolean>(true);
+	React.useEffect(() => {
 		if (searchText.length > 0) {
 			setIsButtonDisabled(false);
 		} else {

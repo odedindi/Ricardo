@@ -1,5 +1,5 @@
 // ====================== react ===========================
-import React, { lazy, Suspense } from 'react';
+import * as React from 'react';
 import {
 	BrowserRouter as Router,
 	Redirect,
@@ -8,21 +8,21 @@ import {
 } from 'react-router-dom';
 // ==================== components ========================
 import Spinner from '../components/Spinner';
-const Container = lazy(
+const Container = React.lazy(
 	() => import('../components/Layout/Container'),
 );
-const Logo = lazy(() => import('../components/Logo'));
+const Logo = React.lazy(() => import('../components/Logo'));
 // ======================= pages ==========================
-const HomePage = lazy(() => import('../pages/home'));
-const SearchPage = lazy(() => import('../pages/searchResults'));
-const ProductDetailsPage = lazy(
+const HomePage = React.lazy(() => import('../pages/home'));
+const SearchPage = React.lazy(() => import('../pages/searchPage'));
+const ProductDetailsPage = React.lazy(
 	() => import('../pages/productDetails'),
 );
 // ========================================================
 
 const Routes: React.FC = () => (
 	<Router>
-		<Suspense fallback={<Spinner />}>
+		<React.Suspense fallback={<Spinner />}>
 			<Container padding={false}>
 				<Logo />
 				<Switch>
@@ -35,7 +35,7 @@ const Routes: React.FC = () => (
 					<Route render={() => <Redirect to={{ pathname: '/' }} />} />
 				</Switch>
 			</Container>
-		</Suspense>
+		</React.Suspense>
 	</Router>
 );
 

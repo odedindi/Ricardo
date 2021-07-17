@@ -1,16 +1,17 @@
 // ========================= react =========================
-import React from 'react';
+import * as React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 // =========================================================
 
 const NoKnownDataGoToHome: React.FC = () => {
 	const history = useHistory();
 
-	const goToHomePageInFiveSeconds = () => {
+	React.useEffect(() => {
 		setTimeout(() => {
 			history.push('/');
 		}, 5000);
-	};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<>
@@ -22,7 +23,6 @@ const NoKnownDataGoToHome: React.FC = () => {
 			<p>
 				otherwise please press <Link to="/">here</Link>
 			</p>
-			{goToHomePageInFiveSeconds()}
 		</>
 	);
 };

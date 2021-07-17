@@ -23,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
 				page={page}
 				onChange={changePageHandler}
 			/>
-			<FormControl variant="outlined" style={{ minWidth: 120 }}>
+			<FormControl variant="outlined" style={{ minWidth: 115 }}>
 				<InputLabel htmlFor="articlesPerPage">
 					Ads per page
 				</InputLabel>
@@ -32,12 +32,12 @@ const Pagination: React.FC<PaginationProps> = ({
 					value={articlesPerPage}
 					onChange={changeArticlesPerPageHandler}
 					label="articlesPerPage"
-					inputProps={{
-						name: 'articlesPerPage',
-						id: 'articlesPerPage',
-					}}
-                >
-					<option aria-label="None" value="" />
+					// inputProps={{
+					// 	name: 'articlesPerPage',
+					// 	id: 'articlesPerPage',
+					// }}
+
+					style={{ height: 35 }}>
 					<option value={10}>10</option>
 					<option value={25}>25</option>
 					<option value={50}>50</option>
