@@ -9,8 +9,8 @@ The application is described below
 
 ### Home Page
 
-- Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `search` button
-- `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `**SEARCH**` button.
+- Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `SEARCH` button
+- `SEARCH` button is **disabled by default**. Typing anything on this search bar enables the `SEARCH` button.
 - Clicking the `SEARCH` button goes to the **Search page**
 
 - given example:
