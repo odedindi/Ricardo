@@ -47,7 +47,6 @@ const HomePage = () => {
 				onClickHandler={onClickHandler}
 			/>
 			<Button
-				state={searchText}
 				isButtonDisabled={isButtonDisabled}
 				onClickHandler={onClickHandler}>
 				<SearchSharpIcon fontSize="small" />
