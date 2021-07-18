@@ -13,21 +13,21 @@ export const Card = styled(MCard)`
 `;
 
 export const Image = styled(CardMedia)`
-	height: 10px;
+	height: 8px;
 	padding-top: 56.25%;
 `;
 
 export const Content = styled(CardContent)`
-	height: 125px;
+	height: 96px;
 	padding: 0 1.65rem;
 `;
 
 export const TitleWrapper = styled.div`
-	height: 90px;
+	height: 77.5px;
 `;
 
 export const Title = styled(Typography)<DefaultTypographyProps>`
-	font-size: 19px;
+	font-size: 17px;
 `;
 
 export const EndingWrapper = styled.div`

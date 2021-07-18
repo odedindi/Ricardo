@@ -3,6 +3,7 @@ import * as React from 'react';
 // ====================== components =====================
 import * as S from './style';
 import { Divider, Typography } from '@material-ui/core';
+import Button from '../../Button';
 // ======================= DOMPurify =====================
 import DOMPurify from 'dompurify';
 // =======================================================
@@ -13,6 +14,7 @@ const ProductDetailsCard: React.FC<ProductDetailsCardProps> = ({
 }) => (
 	<>
 		<S.Card>
+			<Button type="addToFavButton" id={article.id} />
 			<S.Content>
 				<S.Title
 					variant="h4"

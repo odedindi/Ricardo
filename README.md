@@ -6,7 +6,7 @@ The goal of this exercise is to build a (very) **small version of Ricardo** usin
 The application is described below
 
 \*\* The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but types logic is not perfect.
-
+\*\* The withFavorite branch is an extentio of typescript branch, and on top of it, it includes a small addition, a favorite posibility that is stored in the local storage of the user's broweser.
 ### Home Page
 
 - Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `SEARCH` button
@@ -66,7 +66,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Project structure and brief explanation:
 
 - by principle, only a component folder name start with a capital letter.
-- global styles can be found in the **src/styles** otherwise each component style file is located in the same folder as the component itself at the same level as its index.jsx file
+- global styles can be found in the **src/styles** otherwise each component style file is located in the same folder as the component itself at the same level as its index.tsx file
 
 ```bash
 "
@@ -79,54 +79,78 @@ Ricardo
 │   ├── logo512.png
 │   ├── manifest.json
 │   └── robots.txt
+│
 ├── src
 │   ├── __tests__                   --> tests folder
 │   │   └── home.test.tsx           --> contains 2 tests for the home page requiremets
+│   │
 │   ├── asstes
 │   │   └── logo.svg
+│   │
 │   ├── components
 │   │   ├── ArticleCard
 │   │   │   ├── ProductDetailsCard  --> card for the product details page
-│   │   │   │   ├── index.jsx
-│   │   │   │   └── style.js
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.ts
+│   │   │   │
 │   │   │   ├── SearchResultsCard   --> card for the search results page
-│   │   │   │   ├── index.jsx
-│   │   │   │   └── style.js
-│   │   │   └── index.jsx           --> import ArticleCard with an attribute type='small' / type='large'
-│   │   ├── Button                  --> button for startpage add attribute active='false' to have it unactivated
-│   │   │   ├── index.jsx
-│   │   │   └── style.js
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.ts
+│   │   │   │
+│   │   │   └── index.tsx           --> import ArticleCard with an attribute type='productDetailsCard' / type='searchResultsCard'
+│   │   │
+│   │   ├── Button
+│   │   │   ├── AddToFavButton      --> button for both types of articleCard
+│   │   │   │   └── index.tsx
+│   │   │   │
+│   │   │   ├── SearchButton        --> button for startpage
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.ts
+│   │   │   │
+│   │   │   └── index.tsx           --> import Button with an attribute type='searchButton' / type='addToFavButton'
+│   │   │
 │   │   ├── Input                   --> search input field
-│   │   │   ├── index.jsx
-│   │   │   └── style.js
+│   │   │   ├── index.tsx
+│   │   │   └── style.ts
+│   │   │
 │   │   ├── Layout                  --> for all layouts, currently only has one file
-│   │   │   └── container.jsx       --> basic responsiveness, add attribute padding='true' for extra padding
+│   │   │   └── container.tsx       --> basic responsiveness, add attribute padding='true' for extra padding
+│   │   │
 │   │   ├── Logo                    --> the logo wrapped with Link to home page
-│   │   │   └── index.jsx
+│   │   │   └── index.tsx
+│   │   │
 │   │   ├── SearchResultsPagination --> search page pagination component
-│   │   │   ├── index.jsx
-│   │   │   └── style.js
+│   │   │   ├── index.tsx
+│   │   │   └── style.ts
+│   │   │
 │   │   └── Spinner                 --> spinner to show until data is loaded
-│   │       ├── index.jsx
-│   │       └── style.js
+│   │       ├── index.tsx
+│   │       └── style.ts
+│   │
 │   ├── helpers                     --> folder for global functions
 │   │   ├── constants.js            --> contains action types for the store's reducer, the base url and the apiToken variable
 │   │   └── fetches.js              --> the different needed fetch functions for the app
+│   │
 │   ├── pages                       --> the project pages, currently only 3
-│   │   ├── home.jsx
-│   │   ├── productDetails.jsx
-│   │   └── searchPage.jsx
+│   │   ├── home.tsx
+│   │   ├── productDetails.tsx
+│   │   └── searchPage.tsx
+│   │
 │   ├── routes                      --> the basic structure and all routes
-│   │   └── index.jsx
+│   │   └── index.tsx
+│   │
 │   ├── store                       --> project's store, actions and reducer, currently based on the context API
 │   │   ├── actions.js
-│   │   ├── index.jsx
+│   │   ├── index.tsx
 │   │   └── reducer.js
+│   │
 │   ├── styles                      --> golbal styles and theme
 │   │   ├── index.js
 │   │   └── wrappers.js
-│   ├── index.js                    --> main index.js file
+│   │
+│   ├── index.js                    --> main index.tsx file
 │   └── setupTests.js
+│
 ├── .gitignore
 ├── .env                            --> **add your personal apiToken here**
 ├── README.md

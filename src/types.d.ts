@@ -80,10 +80,9 @@ type SearchButtonProps =
 	| any;
 
 type AddToFavButtonProps = {
-			type: string;
-			id: Id;
-	  }
-
+	type: string;
+	id: Id;
+};
 
 type ButtonProps = SearchButtonProps | AddToFavButtonProps;
 

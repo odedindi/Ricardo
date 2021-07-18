@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
 				onClickHandler={onClickHandler}
 			/>
 			<Button
-				type='searchButton'
+				type="searchButton"
 				isButtonDisabled={isButtonDisabled}
 				onClickHandler={onClickHandler}>
 				<SearchSharpIcon fontSize="small" />

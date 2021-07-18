@@ -24,9 +24,9 @@ const SearchResultsCard: React.FC<SearchResultsCardProps> = ({
 		return `${splitedString[0]} at ${splitedString[1].slice(0, -1)}`;
 	};
 
-
 	return (
-		<S.Card>		
+		<S.Card>
+			<Button type="addToFavButton" id={id} />
 			<CardActionArea onClick={onClick}>
 				<S.Image image={imageUrl} title={title} />
 				<S.Content>
@@ -45,10 +45,6 @@ const SearchResultsCard: React.FC<SearchResultsCardProps> = ({
 					<S.Price variant="body2" component="p">
 						{buyNowPrice} CHF
 					</S.Price>
-					<Button 
-						type='addToFavButton'
-						id={ id }
-					/>
 				</CardActions>
 			</CardActionArea>
 		</S.Card>
