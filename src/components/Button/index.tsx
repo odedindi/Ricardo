@@ -1,19 +1,15 @@
 // ====================== react ===========================
 import * as React from 'react';
-// ====================== styles ==========================
-import * as S from './style';
+// ==================== components ========================
+import SearchButton from './SearchButton';
+import AddToFavButton from './AddToFavButton'
 
-const Button: React.FC<ButtonProps> = ({
-	isButtonDisabled,
-	children,
-	onClickHandler,
-}) => (
-	<S.Button
-		data-testid="searchButton"
-		disabled={isButtonDisabled}
-		onClick={onClickHandler}>
-		{children}
-	</S.Button>
-);
+const Button: React.FC<ButtonProps> = (props) => {
+	if (props.type === 'searchButton')
+		return <SearchButton {...props} />;
+	if (props.type === 'addToFavButton') return <AddToFavButton {...props} />;
+	
+	return null;
+};
 
 export default Button;

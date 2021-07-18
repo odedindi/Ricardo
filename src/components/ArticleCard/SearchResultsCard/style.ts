@@ -18,12 +18,12 @@ export const Image = styled(CardMedia)`
 `;
 
 export const Content = styled(CardContent)`
-	height: 140px;
+	height: 125px;
 	padding: 0 1.65rem;
 `;
 
 export const TitleWrapper = styled.div`
-	height: 95px;
+	height: 90px;
 `;
 
 export const Title = styled(Typography)<DefaultTypographyProps>`

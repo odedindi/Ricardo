@@ -71,10 +71,21 @@ type SearchInputProps = {
 	value: string;
 };
 
-type ButtonProps = {
-	isButtonDisabled: boolean;
-	onClickHandler?: () => void;
-};
+type SearchButtonProps =
+	| {
+			type: string;
+			isButtonDisabled: boolean;
+			onClickHandler?: () => void;
+	  }
+	| any;
+
+type AddToFavButtonProps = {
+			type: string;
+			id: Id;
+	  }
+
+
+type ButtonProps = SearchButtonProps | AddToFavButtonProps;
 
 type ProductDetailsCardProps =
 	| { article: ArticleDetails; user: User; type: string }
@@ -82,6 +93,7 @@ type ProductDetailsCardProps =
 type SearchResultsCardProps =
 	| { article: SearchArticle; type: string }
 	| any;
+
 type ArticleCardProps = LargeCardProps | SmallCardProps;
 
 type PaginationProps = {

@@ -41,7 +41,6 @@ const SearchPage = () => {
 	React.useEffect(() => {
 		setSearchResults({ articles: articles, totalCount: totalCount });
 	}, [articles, totalCount]);
-	
 
 	// pagination logic
 	const [page, setPage] = React.useState<number>(1);

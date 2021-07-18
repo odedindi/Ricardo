@@ -5,7 +5,7 @@
 The goal of this exercise is to build a (very) **small version of Ricardo** using Ricardo's api.
 The application is described below
 
-** The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but types logic is not perfect.
+\*\* The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but types logic is not perfect.
 
 ### Home Page
 
