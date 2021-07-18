@@ -6,6 +6,7 @@ The goal of this exercise is to build a (very) **small version of Ricardo** usin
 The application is described below
 
 * The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but types logic is not perfect.
+* 
 * The withFavorite branch is an extention of typescript branch, and on top of it, it includes a small addition, a favorite posibility that is stored in the local storage of the user's broweser.
 
 ### Home Page
