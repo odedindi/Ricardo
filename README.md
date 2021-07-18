@@ -79,54 +79,72 @@ Ricardo
 │   ├── logo512.png
 │   ├── manifest.json
 │   └── robots.txt
+|
 ├── src
 │   ├── __tests__                   --> tests folder
 │   │   └── home.test.tsx           --> contains 2 tests for the home page requiremets
+│   │
 │   ├── asstes
 │   │   └── logo.svg
+│   │
 │   ├── components
 │   │   ├── ArticleCard
 │   │   │   ├── ProductDetailsCard  --> card for the product details page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
+│   │   │   │
 │   │   │   ├── SearchResultsCard   --> card for the search results page
 │   │   │   │   ├── index.jsx
 │   │   │   │   └── style.js
-│   │   │   └── index.jsx           --> import ArticleCard with an attribute type='small' / type='large'
+│   │   │   │
+│   │   │   └── index.jsx           --> import ArticleCard with an attribute type='productDetailsCard' / type='earchResultsCard'
+│   │   │
 │   │   ├── Button                  --> button for startpage add attribute active='false' to have it unactivated
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
+│   │   │
 │   │   ├── Input                   --> search input field
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
+│   │   │
 │   │   ├── Layout                  --> for all layouts, currently only has one file
 │   │   │   └── container.jsx       --> basic responsiveness, add attribute padding='true' for extra padding
+│   │   │
 │   │   ├── Logo                    --> the logo wrapped with Link to home page
 │   │   │   └── index.jsx
+│   │   │
 │   │   ├── SearchResultsPagination --> search page pagination component
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
+│   │   │
 │   │   └── Spinner                 --> spinner to show until data is loaded
 │   │       ├── index.jsx
 │   │       └── style.js
+│   │   │
 │   ├── helpers                     --> folder for global functions
 │   │   ├── constants.js            --> contains action types for the store's reducer, the base url and the apiToken variable
 │   │   └── fetches.js              --> the different needed fetch functions for the app
+│   │
 │   ├── pages                       --> the project pages, currently only 3
 │   │   ├── home.jsx
 │   │   ├── productDetails.jsx
 │   │   └── searchPage.jsx
+│   │
 │   ├── routes                      --> the basic structure and all routes
 │   │   └── index.jsx
+│   │
 │   ├── store                       --> project's store, actions and reducer, currently based on the context API
 │   │   ├── actions.js
 │   │   ├── index.jsx
 │   │   └── reducer.js
+│   │
 │   ├── styles                      --> golbal styles and theme
 │   │   ├── index.js
 │   │   └── wrappers.js
+│   │
 │   ├── index.js                    --> main index.js file
 │   └── setupTests.js
+│
 ├── .gitignore
 ├── .env                            --> **add your personal apiToken here**
 ├── README.md
