@@ -98,7 +98,7 @@ Ricardo
 │   │   │   │
 │   │   │   └── index.jsx           --> import ArticleCard with an attribute type='productDetailsCard' / type='searchResultsCard'
 │   │   │
-│   │   ├── Button                  --> button for startpage add attribute active='false' to have it unactivated
+│   │   ├── Button                  --> button for startpage
 │   │   │   ├── index.jsx
 │   │   │   └── style.js
 │   │   │
