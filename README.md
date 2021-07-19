@@ -8,6 +8,10 @@ The application is described below
 * The typescript branch is experimental, and includes additional features such as pagination and breadcrumbs but types logic is not perfect.
 
 * The withFavorite branch is an extention of typescript branch, and on top of it, it includes a small addition, a favorite posibility that is stored in the local storage of the user's broweser.
+
+* The noStore branch is an improved version of the master branch, with no store at all and with an improved fetching logic using a custom useFetch hook 
+
+
 ### Home Page
 
 - Users first land on the **Home Page** where they would see a search bar and a (initially disabled) `SEARCH` button
