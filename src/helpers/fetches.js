@@ -1,3 +1,6 @@
+import * as React from 'react';
+
+import Spinner from '../components/Spinner';
 import * as C from './constants';
 
 export const fetchSearchResults = async (searchText) => {

@@ -1,15 +1,10 @@
 // ======================== react =========================
 import * as React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 // ======================== styles ========================
 import { ResultsWrapper } from '../styles/wrappers';
 // ======================= fetches ========================
-import { useStore } from '../store';
-import {
-	fetchArticleDetails,
-	fetchSearchResults,
-} from '../helpers/fetches';
-import * as ACTION from '../store/actions';
+import useFetch from '../helpers/useFetch';
 // ====================== components ======================
 import ArticleCard from '../components/ArticleCard';
 import Container from '../components/Layout/Container';
@@ -18,45 +13,18 @@ import Spinner from '../components/Spinner';
 
 const SearchPage = () => {
 	const history = useHistory();
-	let { pathname } = useLocation();
-	const [state, dispatch] = useStore();
-	const { articles, totalCount } = state.searchResults;
+	const [isLoading, data] = useFetch();
 
-	const [searchResults, setSearchResults] = React.useState(
-		state.searchResults,
-	);
-
-	// if user refresh the page and the store get erased, fetch the data again
-	React.useEffect(() => {
-		if (articles === undefined) {
-			let searchText = pathname.split(':')[1];
-			fetchSearchResults(searchText).then((data) => {
-				dispatch(ACTION.searchResults(data));
-			});
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-
-	React.useEffect(() => {
-		setSearchResults({ articles: articles, totalCount: totalCount });
-	}, [articles, totalCount]);
-
-	const onClickHandler = (id) => {
-		fetchArticleDetails(id).then((data) => {
-			dispatch(ACTION.chosenArticle(data));
-			history.push(`/article/:${id}`);
-		});
-	};
+	const onClickHandler = (id) => history.push(`/article/:${id}`);
 
 	return (
 		<Container padding={true}>
-			<p>Total count: {totalCount}</p>
+			<p>Total count: {isLoading ? 0 : data.totalCount}</p>
 			<ResultsWrapper>
-				{!searchResults.articles ||
-				searchResults.articles === undefined ? (
+				{isLoading ? (
 					<Spinner />
 				) : (
-					searchResults.articles.map((article) => (
+					data.articles.map((article) => (
 						<ArticleCard
 							key={article.id}
 							type="searchResultsCard"

@@ -4,10 +4,6 @@ import { useHistory } from 'react-router-dom';
 // ====================== styles ==========================
 import { HomePageWrapper } from '../styles/wrappers';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
-// ====================== fetches =========================
-import { useStore } from '../store';
-import { fetchSearchResults } from '../helpers/fetches';
-import * as ACTION from '../store/actions';
 // ==================== components ========================
 import Button from '../components/Button';
 import SearchInput from '../components/Input';
@@ -15,7 +11,7 @@ import SearchInput from '../components/Input';
 
 const HomePage = () => {
 	const history = useHistory();
-	const [, dispatch] = useStore();
+
 	const [searchText, setSearchText] = React.useState('');
 	const [isButtonDisabled, setIsButtonDisabled] =
 		React.useState(true);
@@ -32,12 +28,7 @@ const HomePage = () => {
 		setSearchText(target.value);
 	};
 
-	const onClickHandler = () => {
-		fetchSearchResults(searchText).then((data) => {
-			dispatch(ACTION.searchResults(data));
-			history.push(`/search/:${searchText}`);
-		});
-	};
+	const onClickHandler = () => history.push(`/search/:${searchText}`);
 
 	return (
 		<HomePageWrapper>
